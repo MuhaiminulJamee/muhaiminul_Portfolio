@@ -54,74 +54,129 @@ const Hero = () => {
         }}></div>
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Main Content */}
-        <div className="mb-8">
-          <h1 
-            ref={nameRef}
-            className="text-5xl md:text-7xl font-bold text-white mb-4 transform transition-all duration-1000 hover:scale-105"
-            style={{ 
-              textShadow: '0 0 30px rgba(0, 255, 255, 0.3)',
-              background: 'linear-gradient(45deg, #fff, #00bcd4, #2196f3)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-          >
-            {personalInfo.name}
-          </h1>
-          
-          <div 
-            ref={titleRef}
-            className="text-xl md:text-2xl text-gray-300 mb-6 font-light tracking-wide transform transition-all duration-1000 hover:text-cyan-300"
-          >
-            {personalInfo.title}
+      <div className="relative z-10 px-4 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
+          {/* Left Column - Content */}
+          <div className="text-center lg:text-left">
+            <h1 
+              ref={nameRef}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 transform transition-all duration-1000 hover:scale-105"
+              style={{ 
+                textShadow: '0 0 30px rgba(0, 255, 255, 0.3)',
+                background: 'linear-gradient(45deg, #fff, #00bcd4, #2196f3)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              {personalInfo.name}
+            </h1>
+            
+            <div 
+              ref={titleRef}
+              className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 font-light tracking-wide transform transition-all duration-1000 hover:text-cyan-300"
+            >
+              {personalInfo.title}
+            </div>
+            
+            <p className="text-base md:text-lg text-gray-400 max-w-2xl lg:max-w-none leading-relaxed mb-8 animate-fade-in-up delay-500">
+              {personalInfo.bio}
+            </p>
+
+            {/* Social Links */}
+            <div className="flex justify-center lg:justify-start space-x-6 mb-8">
+              <a 
+                href={personalInfo.github}
+                className="group relative p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-cyan-400/50 transition-all duration-300 transform hover:scale-110 hover:rotate-6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-6 h-6 text-gray-300 group-hover:text-cyan-400 transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-full bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+              </a>
+              
+              <a 
+                href={personalInfo.linkedin}
+                className="group relative p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-110 hover:rotate-6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="w-6 h-6 text-gray-300 group-hover:text-blue-400 transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-full bg-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+              </a>
+              
+              <a 
+                href={`mailto:${personalInfo.email}`}
+                className="group relative p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-green-400/50 transition-all duration-300 transform hover:scale-110 hover:rotate-6"
+              >
+                <Mail className="w-6 h-6 text-gray-300 group-hover:text-green-400 transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-full bg-green-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+              </a>
+            </div>
+
+            {/* CTA Button */}
+            <button 
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 active:scale-95"
+            >
+              <span className="relative z-10">Explore My Work</span>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+            </button>
           </div>
-          
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8 animate-fade-in-up delay-500">
-            {personalInfo.bio}
-          </p>
-        </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center space-x-6 mb-12">
-          <a 
-            href={personalInfo.github}
-            className="group relative p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-cyan-400/50 transition-all duration-300 transform hover:scale-110 hover:rotate-6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="w-6 h-6 text-gray-300 group-hover:text-cyan-400 transition-colors duration-300" />
-            <div className="absolute inset-0 rounded-full bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-          </a>
-          
-          <a 
-            href={personalInfo.linkedin}
-            className="group relative p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-110 hover:rotate-6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin className="w-6 h-6 text-gray-300 group-hover:text-blue-400 transition-colors duration-300" />
-            <div className="absolute inset-0 rounded-full bg-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-          </a>
-          
-          <a 
-            href={`mailto:${personalInfo.email}`}
-            className="group relative p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-green-400/50 transition-all duration-300 transform hover:scale-110 hover:rotate-6"
-          >
-            <Mail className="w-6 h-6 text-gray-300 group-hover:text-green-400 transition-colors duration-300" />
-            <div className="absolute inset-0 rounded-full bg-green-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-          </a>
-        </div>
+          {/* Right Column - Photo */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="relative group">
+              {/* 3D Photo Container */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                {/* Floating rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-cyan-400/20 animate-spin" style={{ animationDuration: '20s' }}></div>
+                <div className="absolute inset-4 rounded-full border border-blue-400/30 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
+                
+                {/* Photo with 3D effects */}
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:rotate-3" 
+                     style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Placeholder for your photo - replace src with your actual photo */}
+                  <img 
+                    src="/api/placeholder/400/400" 
+                    alt={personalInfo.name}
+                    className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+                    style={{
+                      background: 'linear-gradient(45deg, #0D47A1, #1565C0, #00BCD4)',
+                      filter: 'brightness(1.1) contrast(1.1)'
+                    }}
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Glowing border effect */}
+                  <div className="absolute inset-0 rounded-full border-2 border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                </div>
 
-        {/* CTA Button */}
-        <button 
-          onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 active:scale-95"
-        >
-          <span className="relative z-10">Explore My Work</span>
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-        </button>
+                {/* Floating particles around photo */}
+                <div className="absolute -top-4 -right-4 w-3 h-3 bg-cyan-400 rounded-full animate-bounce opacity-70"></div>
+                <div className="absolute -bottom-6 -left-6 w-2 h-2 bg-blue-400 rounded-full animate-ping opacity-60"></div>
+                <div className="absolute top-1/3 -left-8 w-4 h-4 bg-purple-400 rounded-full animate-pulse opacity-50"></div>
+                <div className="absolute bottom-1/4 -right-8 w-2 h-2 bg-green-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.5s' }}></div>
+
+                {/* Tech symbols floating */}
+                <div className="absolute -top-8 left-1/4 text-cyan-400 opacity-60 animate-float text-2xl">🤖</div>
+                <div className="absolute -bottom-8 right-1/4 text-blue-400 opacity-60 animate-float text-xl" style={{ animationDelay: '1s' }}>💻</div>
+                <div className="absolute top-1/2 -left-12 text-purple-400 opacity-60 animate-float text-lg" style={{ animationDelay: '1.5s' }}>🔬</div>
+                <div className="absolute top-1/4 -right-12 text-green-400 opacity-60 animate-float text-lg" style={{ animationDelay: '2s' }}>⚡</div>
+              </div>
+
+              {/* Professional badge */}
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-full border border-white/20 backdrop-blur-sm shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span>Available for Collaboration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Scroll Indicator */}
         <button 
