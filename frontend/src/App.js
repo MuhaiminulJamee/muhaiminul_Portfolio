@@ -7,6 +7,12 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
+import Publications from './components/Publications';
+import Awards from './components/Awards';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { Toaster } from './components/ui/toaster';
 import './App.css';
 
 function App() {
@@ -25,10 +31,17 @@ function App() {
                   <About />
                   <Skills />
                   <Projects />
+                  <Experience />
+                  <Publications />
+                  <Awards />
+                  <Contact />
                 </main>
+                <Footer />
               </>
             } />
           </Routes>
+          
+          <Toaster />
         </BrowserRouter>
       </div>
     </ThemeProvider>
